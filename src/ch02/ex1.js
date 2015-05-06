@@ -11,5 +11,7 @@
  * #######
  */
 function ch02ex01(){
-  // TODO: implementation
+  for(var i = 0, msg = '#'; i < 7; i++, msg += '#'){
+    console.log(msg);
+  }
 }
