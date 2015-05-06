@@ -1,0 +1,18 @@
+{
+  "name": "eloquentjs",
+  "version": "0.0.0",
+  "description": "tests for working through eloquent javascript",
+  "scripts": {
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.1",
+    "jasmine-core": "^2.3.0",
+    "karma": "^0.12.31",
+    "karma-cli": "0.0.4",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "phantomjs": "^1.9.16"
+  }
+}
