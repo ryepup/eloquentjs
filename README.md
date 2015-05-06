@@ -11,7 +11,8 @@ To run the tests, install [nodejs][] for you platform, then run:
     npm run tests
 
 This will start a test listener and re-run tests automatically as you
-change files.
+change files. Tests are written using the [jasmine][] test framework.
 
+[jasmine]: http://jasmine.github.io/
 [nodejs]: https://nodejs.org/
 [Eloquent Javascript]: http://eloquentjavascript.net/
