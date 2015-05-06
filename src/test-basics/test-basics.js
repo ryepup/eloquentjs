@@ -32,4 +32,9 @@ describe('jasmine basics', function() {
     expect(objA).not.toBe(objB, 'should not point to the same object');
     expect(objA).toEqual(objB, 'should have the same contents');
   });
+
+  it('can read json fixtures', function() {
+    var f = __fixtures__['test-basics/test-data'];
+    expect(f).toEqual([1,2,3]);
+  });
 });
