@@ -6,10 +6,12 @@ module.exports = function(config){
     files : [
       'src/setup.js',
       'src/**/*.json',
+      'src/**/*.txt',
       'src/**/*.js'
     ],
     preprocessors: {
-      '**/*.json': ['json_fixtures']
+      '**/*.json': ['json_fixtures'],
+      '**/*.txt': ['html2js']
     },
 
     autoWatch : true,
@@ -21,11 +23,8 @@ module.exports = function(config){
     plugins : [
       'karma-phantomjs-launcher',
       'karma-jasmine',
-      'karma-json-fixtures-preprocessor'
-    ],
-
-    jsonFixturesPreprocessor: {
-      stripPrefix: 'src/'
-    }
+      'karma-json-fixtures-preprocessor',
+      'karma-html2js-preprocessor'
+    ]
   });
 };
