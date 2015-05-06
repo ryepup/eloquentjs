@@ -25,10 +25,6 @@ module.exports = function(config){
       'karma-jasmine',
       'karma-json-fixtures-preprocessor',
       'karma-html2js-preprocessor'
-    ],
-
-    jsonFixturesPreprocessor: {
-      stripPrefix: 'src/'
-    }
+    ]
   });
 };

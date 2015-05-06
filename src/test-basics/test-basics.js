@@ -34,7 +34,7 @@ describe('jasmine basics', function() {
   });
 
   it('can read json fixtures', function() {
-    var f = __fixtures__['test-basics/test-data'];
+    var f = __fixtures__['src/test-basics/test-data'];
     expect(f).toEqual([1,2,3]);
   });
 
