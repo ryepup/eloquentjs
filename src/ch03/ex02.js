@@ -13,5 +13,8 @@
  * return a Boolean.
  */
 function isEven(n) {
-
+  if (n === 0) return true;
+  if (n === 1) return false;
+  if (n < 0) return isEven(-1*n);
+  return isEven(n-2);
 }
