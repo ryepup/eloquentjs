@@ -5,7 +5,7 @@
  */
 
 function countBs(input){
-
+  return countChar(input, 'B');
 }
 
 /**
@@ -16,5 +16,9 @@ function countBs(input){
  */
 
 function countChar(input, char){
-
+  var count = 0;
+  for(var i = 0; i < input.length; i++){
+    if(input[i] === char) count++;
+  }
+  return count;
 }
