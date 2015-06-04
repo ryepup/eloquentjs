@@ -8,7 +8,7 @@ solutions.
 
 To run the tests, install [nodejs][] for you platform, then run:
 
-    npm run tests
+    npm run test
 
 This will start a test listener and re-run tests automatically as you
 change files. Tests are written using the [jasmine][] test framework.
