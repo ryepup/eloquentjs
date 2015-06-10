@@ -4,7 +4,10 @@
  * elements of the input arrays.
  */
 function flatten(list){
-  throw 'not implemented';
+  function f(result, item){
+    return result.concat(item);
+  }
+  return list.reduce(f, []);
 };
 
 /**
@@ -24,7 +27,13 @@ function average(array) {
 }
 
 function averageMotherChildAgeDifference(ancestry, byName) {
-  throw 'not implemented';
+  function hasAMother(child) {
+    return child.mother != null && byName[child.mother];
+  }
+  function momsAgeAtBirth(child) {
+    return child.born - byName[child.mother].born;
+  }
+  return average(ancestry.filter(hasAMother).map(momsAgeAtBirth));
 }
 
 /**
@@ -39,7 +48,17 @@ function averageMotherChildAgeDifference(ancestry, byName) {
  *
  */
 function averageAgeByCentury(ancestry) {
-  throw 'not implemented';
+  function deathCentury(person) {
+    return Math.ceil(person.died / 100);
+  }
+  function ageOfDeath(person) {
+    return person.died - person.born;
+  }
+  var pplByCentury = groupBy(ancestry, deathCentury);
+  for(var k in pplByCentury){
+    pplByCentury[k] = average(pplByCentury[k].map(ageOfDeath));
+  }
+  return pplByCentury;
 }
 
 /**
@@ -49,7 +68,18 @@ function averageAgeByCentury(ancestry) {
  * returns an object that maps group names to arrays of group members.
  */
 function groupBy(list, key) {
-  throw 'not implemented';
+
+  function f(result, item){
+    if(result[item.key] === undefined) result[item.key] = [];
+    result[item.key].push(item.value);
+    return result;
+  }
+
+  return list
+    .map(function(item) {
+      return {key: key(item), value: item};
+    })
+    .reduce(f, {});
 }
 
 /**
@@ -58,10 +88,14 @@ function groupBy(list, key) {
  * rather than being a method.
  */
 
-function some(list, test) {
-  throw 'not implemented';
+function some(list, test){
+  // quit as soon as one is true
+  if(list.length === 0) return false;
+  return test(list[0]) || some(list.slice(1), test);
 }
 
 function every(list, test) {
-  throw 'not implemented';
+  // quit as soon as one is false
+  // every item is x == no items that aren't x
+  return !some(list, function(item) { return !test(item); });
 }
