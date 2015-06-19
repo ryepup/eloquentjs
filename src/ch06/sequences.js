@@ -18,8 +18,37 @@
  * constructor) instead.
  */
 
-function ArraySeq() {}
+// interface: hasItems() + next()
 
-function RangeSeq() {}
+function ArraySeq(list) {
+  this.i = 0;
+  this.list = list;
+}
 
-function logFive(seq) {}
+ArraySeq.prototype.hasItems = function() {
+  return this.i < this.list.length;
+};
+
+ArraySeq.prototype.next = function() {
+  return this.list[this.i++];
+};
+
+function RangeSeq(start, end) {
+  this.i = start;
+  this.end = end;
+}
+
+RangeSeq.prototype.hasItems = function() {
+  return this.i < this.end;
+};
+
+RangeSeq.prototype.next = function() {
+  return this.i++;
+};
+
+
+function logFive(seq) {
+  for(var i = 5; seq.hasItems() && i > 0; i--){
+    console.log(seq.next());
+  }
+}
