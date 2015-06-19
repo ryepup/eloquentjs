@@ -5,4 +5,19 @@
  * ensure that the resulting cell has at least the given width and
  * height, even if the inner cell would naturally be smaller.
  */
-function StretchCell(inner, width, height){}
+function StretchCell(inner, width, height){
+  this.inner = inner;
+  this.width = width;
+  this.height = height;
+}
+
+StretchCell.prototype.minWidth = function() {
+  return Math.max(this.inner.minWidth(), this.width);
+};
+
+StretchCell.prototype.minHeight = function() {
+  return Math.max(this.inner.minHeight(), this.height);
+};
+StretchCell.prototype.draw = function(width, height) {
+  return this.inner.draw(width, height);
+};
