@@ -52,3 +52,33 @@ function logFive(seq) {
     console.log(seq.next());
   }
 }
+
+// extra credit non-OO version
+
+STOP_ITERATION = {};
+
+function arrayIterator(list) {
+  var i = 0;
+  return function() {
+    if(i < list.length) return list[i++];
+    throw STOP_ITERATION;
+  };
+}
+
+function rangeIterator(from, to) {
+  return function() {
+    if(from < to) return from++;
+    throw STOP_ITERATION;
+  };
+}
+
+function logFiveIterator(iter) {
+  for(var i = 0; i < 5; i++){
+    try{
+      console.log(iter());
+    }catch(e){
+      if (e === STOP_ITERATION) break;
+      else throw e;
+    }
+  }
+}

@@ -15,4 +15,14 @@ describe('sequences', function() {
     logFive(new RangeSeq(100, 1000));
     expect(logs).toEqual([100,101,102,103,104]);
   });
+
+  it('arrayIterator', function() {
+    logFiveIterator(arrayIterator([1,2]));
+    expect(logs).toEqual([1,2]);
+  });
+
+  it('rangeIterator', function() {
+    logFiveIterator(rangeIterator(100, 1000));
+    expect(logs).toEqual([100,101,102,103,104]);
+  });
 });
