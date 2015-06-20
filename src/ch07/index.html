@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Electronic Life</h1>
+    <pre id="screen"></pre>
+    <script src="ch07.js"></script>
+    <script language="javascript">
+function animateWorld(world){
+  var screen = document.getElementById('screen'),
+  render = function() {
+    world.turn();
+    screen.innerHTML = world.toString();
+  };
+  setInterval(render, 250)
+}
+animateWorld(new World(
+  ["############",
+   "#     #    #",
+   "#   ~    ~ #",
+   "#  ##      #",
+   "#  ##  o####",
+   "#          #",
+   "############"],
+  {"#": Wall,
+   "~": WallFollower,
+   "o": BouncingCritter}
+));
+    </script>
+  </body>
+</html>
