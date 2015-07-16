@@ -22,7 +22,7 @@ var regexMatchers = {
         var matched = Array.prototype.slice.call(arguments, 1);
 
         if(regex)
-          matched = matched.filter(regex.test);
+          matched = matched.filter(function(s) { return regex.test(s); });
 
         if(matched.length == 0) return { pass: true };
 
